@@ -9,18 +9,18 @@ class PodcastsSpider < Kimurai::Base
   end
 
   def parse(response, url:, data: {})
-    puts response
-    puts ("oiii")
-    puts response.css('strong.tit')
-
-    response.css('strong.tit').each do |vehicle|
-      puts vehicle.text&.squish
-      
+    podcastList = []
+    response.css('div.span3').each do |podcastTitle|
       item = {}
 
-      item[:title]      = vehicle.text&.squish
+      item[:title] = podcastTitle.css('strong.tit')&.text&.squish
+      item[:image_url] = podcastTitle.css('img.lazyload').attr('data-src')&.text&.squish
 
-      Podcastscrapping.where(item).first_or_create
+      podcastList.append(item)
+    end
+    podcastList.pop
+    podcastList.each do |podcast|
+      Podcastscrapping.where(podcast).first_or_create
     end
   end
 end
