@@ -1,0 +1,2 @@
+class Podcastscrapping < ApplicationRecord
+end
