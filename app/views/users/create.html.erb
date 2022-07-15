@@ -1,12 +1,6 @@
-<%form_for @user, controller: 'users', action: 'create' do |f|%>
-    <%= f.label :name%>
-    <%= f.text_field :name%>
+<p style="color: green"><%= notice %></p>
 
-    <%= f.label :password%>
-    <%= f.password :password%>
-
-    <%= f.label :password_confirmation%>
-    <%= f.password :password_confirmation%>
-
-    <%= f.submit "create"%>
-<%end%>
+<div>
+    <p> User created</p>
+  <%= link_to "Back to home", root_path %>
+</div>

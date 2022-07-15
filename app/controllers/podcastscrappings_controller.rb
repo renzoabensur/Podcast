@@ -1,9 +1,7 @@
 class PodcastscrappingsController < ApplicationController
   before_action :set_podcastscrapping, only: %i[ show edit update destroy ]
 
-  # GET /podcastscrappings or /podcastscrappings.json
   def index
-    @podcastscrappings = Podcastscrapping.all
   end
 
   def scrape
@@ -18,7 +16,6 @@ class PodcastscrappingsController < ApplicationController
     flash.now[:alert] = "Error: #{e}"
   end
 
-  # GET /podcastscrappings/1 or /podcastscrappings/1.json
   def show
   end
 
@@ -28,7 +25,6 @@ class PodcastscrappingsController < ApplicationController
       @podcastscrapping = Podcastscrapping.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def podcastscrapping_params
       params.require(:podcastscrapping).permit(:title)
     end
