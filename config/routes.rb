@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'podcastscrappings#index'
+  get 'users', controller: 'users', action: 'create'
 end
