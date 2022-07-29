@@ -1,9 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Home</h1>
+
 <%= button_to 'Scrape', scrape_podcastscrappings_path %>
-<%= link_to "Create user", user_index_path %>
-<%= link_to "Login", user_login_path %>
+<%= link_to "Create user", user_index_path unless current_user %>
+<%= link_to "Login", user_login_path unless current_user %>
+<%= link_to "Profile", user_profile_path if current_user %>
+<%= link_to "Logout", user_logout_path if current_user %>
 
 <div id="podcastscrappings">
   <% @podcastscrappings.each do |podcastscrapping| %>

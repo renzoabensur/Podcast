@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Profile</h1>
+<p> Nome: <%= @user.name %></p>
+<p> Email: <%= @user.email %></p>
+
+<p> Editar: adicionar botao para editar perfil</p>
+
+<p> Favoritos: adicionar botao para ver podcast favoritos</p>
+
+
+<%= link_to "Back to home", root_path %>
+<%= link_to "Logout", user_logout_path if current_user %>
+
+
+
+
