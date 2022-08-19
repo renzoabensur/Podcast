@@ -2,9 +2,12 @@
   <p>
     <strong>Title:</strong>
     <%= podcastscrapping.title %>
+    <%= link_to "Favoritar", favorite_create_path(@no_favorite, :podcastscrapping_id => podcastscrapping.id) if can_favorite?(podcastscrapping.id) %>
+    <%= link_to "Desfavoritar", favorite_destroy_path(@destroy, :podcastscrapping_id => podcastscrapping.id) unless can_desfavorite?(podcastscrapping.id) %>
+
   </p>
 
-    <p>
+  <p>
     <img src="<%= podcastscrapping.image_url %>"/>
   </p>
 

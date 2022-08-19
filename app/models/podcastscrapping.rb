@@ -1,3 +1,3 @@
 class Podcastscrapping < ApplicationRecord
-    has_many :users
+    has_many :favorites, dependent: :destroy
 end

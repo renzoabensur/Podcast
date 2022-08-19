@@ -6,8 +6,21 @@
 
 <p> Editar: adicionar botao para editar perfil</p>
 
-<p> Favoritos: adicionar botao para ver podcast favoritos</p>
+<p> Favoritos:</p>
+<div id="favorites">
+  <% current_user.favorites.each do |favorite_podcast| %>
+    <div>
+    <p>
+        <%= Podcastscrapping.find_by(id:favorite_podcast.podcastscrapping_id).title %>
+      <%= link_to "Desfavoritar", favorite_destroy_path(@destroy, :podcastscrapping_id => favorite_podcast.podcastscrapping_id) unless can_desfavorite?(favorite_podcast.podcastscrapping_id) %>
 
+    </p>
+    <p>
+        <img src="<%= Podcastscrapping.find_by(id:favorite_podcast.podcastscrapping_id).image_url %>"/>
+    </p>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "Back to home", root_path %>
 <%= link_to "Logout", user_logout_path if current_user %>

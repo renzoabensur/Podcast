@@ -32,6 +32,7 @@ class UserController < ApplicationController
 
     def logout
         sign_out
+        redirect_to root_path and return
     end
 
     def profile

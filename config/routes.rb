@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/create_user', to: 'user#create', as: 'create_user'
   get '/fail_user', to: 'user#fail', as: 'fail_user'
   get '/profile_user', to: 'user#profile', as: 'user_profile'
+  get '/favorite', to: 'favorite#create', as: 'favorite_create'
+  get '/favorite_destroy', to: 'favorite#destroy', as: 'favorite_destroy'
+  get '/favorite_fail', to: 'favorite#fail', as: 'favorite_fail'
 end

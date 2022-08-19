@@ -12,6 +12,7 @@ class PodcastscrappingsController < ApplicationController
     else
       flash.now[:alert] = response[:error]
     end
+    redirect_to root_path and return
   rescue StandardError => e
     flash.now[:alert] = "Error: #{e}"
   end
